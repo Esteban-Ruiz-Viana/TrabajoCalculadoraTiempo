@@ -1,42 +1,21 @@
 public class SumarMinutos {
 
-        public static void main(String[] args) {
-            Scanner entrada = new Scanner(System.in);
+        // Esta es la función (método) equivalente en Java
+        public static String sumarMinutos(String horaInicial, int minutosASumar) {
+            // Separar los datos de la hora inicial ("14:30" -> ["14", "30"])
+            String[] partes = horaInicial.split(":");
+            int horas = Integer.parseInt(partes[0]);
+            int minutos = Integer.parseInt(partes[1]);
 
-            int hora, minutos, minutosASumar;
-            String formato;
+            // Calcular el total de minutos desde las 00:00
+            int totalMinutos = horas * 60 + minutos + minutosASumar;
 
-            System.out.println("Vamos a sumar minutos a una hora dada");
+            // Calcular las nuevas horas y minutos
+            int nuevasHoras = (totalMinutos / 60) % 24;
+            int nuevosMinutos = totalMinutos % 60;
 
-            System.out.print("Ingresa la hora (solo la hora): ");
-            hora = entrada.nextInt();
-
-            System.out.print("Ingresa los minutos actuales: ");
-            minutos = entrada.nextInt();
-
-            System.out.print("Minutos a sumar: ");
-            minutosASumar = entrada.nextInt();
-
-            minutos = minutos + minutosASumar;
-            hora = hora + (minutos / 60);
-            minutos = minutos % 60;
-            hora = hora % 24;
-
-            entrada.nextLine(); // limpiar buffer
-            System.out.print("¿Quieres ver la hora en formato militar (24h) o normal (12h)? ");
-            formato = entrada.nextLine();
-
-            if (formato.equalsIgnoreCase("normal")) {
-                int horaNormal = hora % 12;
-                if (horaNormal == 0) horaNormal = 12;
-                String ampm = (hora < 12) ? "AM" : "PM";
-                System.out.println("La nueva hora es: " + horaNormal + ":" + String.format("%02d", minutos) + " " + ampm);
-            } else {
-                System.out.println("La nueva hora es: " + String.format("%02d", hora) + ":" + String.format("%02d", minutos));
-            }
-
-            entrada.close();
+            // Retornar el resultado formateado con dos dígitos (ej. "09:05")
+            return String.format("%02d:%02d", nuevasHoras, nuevosMinutos);
         }
+
     }
-
-
