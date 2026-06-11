@@ -1,7 +1,8 @@
-import java.util.Scanner;
+import CalculadoraTiempoCli.CalculadoraTiempoCli;
 
-public class Main {
-    public static void main(String[] args) {
-        // Your code goes here
+class Main {
+     static void main(String[] args) {
+        CalculadoraTiempoCli cli = new CalculadoraTiempoCli();
+        cli.iniciar();
     }
 }

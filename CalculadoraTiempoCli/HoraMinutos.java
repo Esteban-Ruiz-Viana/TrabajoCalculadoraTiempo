@@ -1,3 +1,5 @@
+package CalculadoraTiempoCli;
+
 public class HoraMinutos {
 
     public static int convertirHorasAMinutos(int horas) {

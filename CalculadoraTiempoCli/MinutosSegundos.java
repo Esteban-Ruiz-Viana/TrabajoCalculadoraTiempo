@@ -1,3 +1,5 @@
+package CalculadoraTiempoCli;
+
 public class MinutosSegundos {
 
     public static int convertirMinutosASegundos(int minutos) {
